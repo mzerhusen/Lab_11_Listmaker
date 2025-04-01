@@ -16,6 +16,8 @@ public class Listmaker
 
         do
         {
+            printList();
+            System.out.print("\n");
             SafeInput.prettyHeader(60, "A-Add D-Delete I-Insert P-Print Q-Quit");
             menuSelection = SafeInput.getRegExString(input, "Please pick a menu option", "[AaDdIiPpQq]");
             menuSelection = menuSelection.toUpperCase();
@@ -34,7 +36,6 @@ public class Listmaker
                         insertIntoList(input);
                         break;
                     case "P":
-                        printList();
                         break;
                     case "Q":
                         isDone = quitList(input);
@@ -67,18 +68,6 @@ public class Listmaker
     {
         String userAdd;
 
-        if(!userList.isEmpty())
-        {
-            for (int x = 0; x < userList.size(); x++)
-            {
-                System.out.println((x + 1) + ": " + userList.get(x));
-            }
-        }
-        else
-        {
-            System.out.println("List is empty.");
-        }
-
         userAdd = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to add");
         userList.add(userAdd);
         System.out.print("\nThe data has been added.\n\n");
@@ -88,11 +77,6 @@ public class Listmaker
     private static void deleteFromList(Scanner input)
     {
         int userDelete;
-
-        for(int x = 0; x < userList.size(); x++)
-        {
-            System.out.println((x + 1) + ": " + userList.get(x));
-        }
 
         userDelete = SafeInput.getRangedInt(input,"Please enter the index number of the item you want to delete",1,userList.size());
         userList.remove(userDelete - 1);
@@ -106,33 +90,35 @@ public class Listmaker
     {
         String userInsert;
         int userInsertIndex;
-
-        for(int x = 0; x < userList.size(); x++)
-            {
-            System.out.println((x + 1) + ": " + userList.get(x));
-            }
+        String replacedData;
 
         userInsert = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to insert");
         userInsertIndex = SafeInput.getRangedInt(input,"Please enter the index you would like to add at", 1,userList.size());
 
+        replacedData = userList.get(userList.size() - 1);
         for(int x = userList.size() - 1; x >= userInsertIndex; x--)
         {
-            userList.add(x, userList.get(x - 1));
+            userList.set(x, userList.get(x - 1));
         }
         userList.set(userInsertIndex - 1, userInsert);
-
+        userList.add(replacedData);
         System.out.print("\nThe data has been added.\n\n");
 
     }
 
     private static void printList()
     {
-        for(int x = 0; x < userList.size(); x++)
+        if(!userList.isEmpty())
         {
-            System.out.println((x + 1) + ": " + userList.get(x));
+            for (int x = 0; x < userList.size(); x++)
+            {
+                System.out.println((x + 1) + ": " + userList.get(x));
+            }
         }
-        System.out.print("\nPrint complete.\n\n");
-
+        else
+        {
+            System.out.println("List is empty.");
+        }
     }
 
     private static boolean quitList(Scanner input)
