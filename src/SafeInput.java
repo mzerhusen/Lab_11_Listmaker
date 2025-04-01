@@ -239,5 +239,50 @@ public class SafeInput
     }
 
 
+    public static String prettyHeader(int length ,String prompt)
+    {
+        int promptLength = prompt.length();
+        int textGap = ((length - promptLength)/2) - 3;
+
+        for(int x = 1; x <= length; x++)
+        {
+            System.out.print("*");
+        }
+        System.out.print("\n");
+        for(int x = 1; x <= 3; x++)
+        {
+            System.out.print("*");
+        }
+        for(int x = 1; x <= textGap; x++)
+        {
+            System.out.print(" ");
+        }
+        System.out.print(prompt + ": ");
+        if(textGap % 2 == 0)
+            for(int x = 1; x <= (textGap - 2); x++)
+            {
+                System.out.print(" ");
+            }
+        else
+        {
+            for(int x = 1; x <= (textGap - 1); x++)
+            {
+                System.out.print(" ");
+            }
+        }
+        for(int x = 1; x <= 3; x++)
+        {
+            System.out.print("*");
+        }
+        System.out.print("\n");
+        for(int x = 1; x <= length; x++)
+        {
+            System.out.print("*");
+        }
+        System.out.print("\n");
+
+        return null;
+    }
+
 
 }
