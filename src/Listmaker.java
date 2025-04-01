@@ -34,7 +34,7 @@ public class Listmaker
                         insertIntoList(input);
                         break;
                     case "P":
-                        printList(input);
+                        printList();
                         break;
                     case "Q":
                         isDone = true;
@@ -82,7 +82,7 @@ public class Listmaker
         userAdd = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to add");
         userList.add(userAdd);
         System.out.print("\nThe data has been added.\n");
-        return;
+
     }
 
     private static void deleteFromList(Scanner input)
@@ -99,14 +99,13 @@ public class Listmaker
 
         System.out.print("\nThe data has been removed.\n");
 
-        return;
+
     }
 
     private static void insertIntoList(Scanner input)
     {
         String userInsert;
         int userInsertIndex;
-        String replacedData;
 
         for(int x = 0; x < userList.size(); x++)
             {
@@ -124,10 +123,9 @@ public class Listmaker
 
         System.out.print("\nThe data has been added.\n");
 
-        return;
     }
 
-    private static void printList(Scanner input)
+    private static void printList()
     {
         for(int x = 0; x < userList.size(); x++)
         {
@@ -135,7 +133,6 @@ public class Listmaker
         }
         System.out.print("\nPrint complete.\n");
 
-        return;
     }
 
 }
