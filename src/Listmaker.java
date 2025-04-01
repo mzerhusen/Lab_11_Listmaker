@@ -17,7 +17,7 @@ public class Listmaker
         do
         {
             SafeInput.prettyHeader(60, "A-Add D-Delete I-Insert P-Print Q-Quit");
-            menuSelection = SafeInput.getRegExString(input, "Please pick a menu option: ", "[AaDdIiPpQq]");
+            menuSelection = SafeInput.getRegExString(input, "Please pick a menu option", "[AaDdIiPpQq]");
             menuSelection = menuSelection.toUpperCase();
             System.out.print("\n");
 
@@ -79,8 +79,9 @@ public class Listmaker
             System.out.println("List is empty.");
         }
 
-        userAdd = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to add: ");
+        userAdd = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to add");
         userList.add(userAdd);
+        System.out.print("\nThe data has been added.\n");
         return;
     }
 
@@ -93,8 +94,10 @@ public class Listmaker
             System.out.println((x + 1) + ": " + userList.get(x));
         }
 
-        userDelete = SafeInput.getRangedInt(input,"Please enter the index number of the item you want to delete: ",1,userList.size());
+        userDelete = SafeInput.getRangedInt(input,"Please enter the index number of the item you want to delete",1,userList.size());
         userList.remove(userDelete - 1);
+
+        System.out.print("\nThe data has been removed.\n");
 
         return;
     }
@@ -103,20 +106,23 @@ public class Listmaker
     {
         String userInsert;
         int userInsertIndex;
+        String replacedData;
 
         for(int x = 0; x < userList.size(); x++)
             {
             System.out.println((x + 1) + ": " + userList.get(x));
             }
 
-        userInsert = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to insert: ");
-        userInsertIndex = SafeInput.getRangedInt(input,"Please enter the index you would like to add at: ", 1,userList.size());
+        userInsert = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to insert");
+        userInsertIndex = SafeInput.getRangedInt(input,"Please enter the index you would like to add at", 1,userList.size());
 
-        for(int x = userList.size(); x >= userInsertIndex - 1; x--)
+        for(int x = userList.size() - 1; x >= userInsertIndex; x--)
         {
-            userList.add(userList.get(x));
+            userList.add(x, userList.get(x - 1));
         }
         userList.set(userInsertIndex - 1, userInsert);
+
+        System.out.print("\nThe data has been added.\n");
 
         return;
     }
@@ -127,6 +133,7 @@ public class Listmaker
         {
             System.out.println((x + 1) + ": " + userList.get(x));
         }
+        System.out.print("\nPrint complete.\n");
 
         return;
     }
