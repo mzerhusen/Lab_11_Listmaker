@@ -37,7 +37,7 @@ public class Listmaker
                         printList();
                         break;
                     case "Q":
-                        isDone = true;
+                        isDone = quitList(input);
                         break;
                 }
             else
@@ -53,7 +53,7 @@ public class Listmaker
                         System.out.println("The list is empty, please select Add to start list.\n");
                         break;
                     case "Q":
-                        isDone = true;
+                        isDone = quitList(input);
                         break;
                 }
             }
@@ -132,6 +132,15 @@ public class Listmaker
             System.out.println((x + 1) + ": " + userList.get(x));
         }
         System.out.print("\nPrint complete.\n\n");
+
+    }
+
+    private static boolean quitList(Scanner input)
+    {
+        boolean quit;
+        quit = SafeInput.getYesNoConfirm(input, "Are you sure you want to quit?");
+
+        return quit;
 
     }
 
