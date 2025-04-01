@@ -50,7 +50,7 @@ public class Listmaker
                     case "D":
                     case "I":
                     case "P":
-                        System.out.println("The list is empty, please select Add to start list.");
+                        System.out.println("The list is empty, please select Add to start list.\n");
                         break;
                     case "Q":
                         isDone = true;
