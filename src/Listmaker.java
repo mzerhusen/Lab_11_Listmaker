@@ -95,7 +95,7 @@ public class Listmaker
         userInsert = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to insert");
         userInsertIndex = SafeInput.getRangedInt(input,"Please enter the index you would like to add at", 1,userList.size());
 
-        replacedData = userList.get(userList.size() - 1);
+        replacedData = userList.getLast();
         for(int x = userList.size() - 1; x >= userInsertIndex; x--)
         {
             userList.set(x, userList.get(x - 1));
