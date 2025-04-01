@@ -81,7 +81,7 @@ public class Listmaker
 
         userAdd = SafeInput.getNonZeroLenString(input,"Please enter the data you would like to add");
         userList.add(userAdd);
-        System.out.print("\nThe data has been added.\n");
+        System.out.print("\nThe data has been added.\n\n");
 
     }
 
@@ -97,7 +97,7 @@ public class Listmaker
         userDelete = SafeInput.getRangedInt(input,"Please enter the index number of the item you want to delete",1,userList.size());
         userList.remove(userDelete - 1);
 
-        System.out.print("\nThe data has been removed.\n");
+        System.out.print("\nThe data has been removed.\n\n");
 
 
     }
@@ -121,7 +121,7 @@ public class Listmaker
         }
         userList.set(userInsertIndex - 1, userInsert);
 
-        System.out.print("\nThe data has been added.\n");
+        System.out.print("\nThe data has been added.\n\n");
 
     }
 
@@ -131,7 +131,7 @@ public class Listmaker
         {
             System.out.println((x + 1) + ": " + userList.get(x));
         }
-        System.out.print("\nPrint complete.\n");
+        System.out.print("\nPrint complete.\n\n");
 
     }
 
