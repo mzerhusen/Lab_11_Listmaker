@@ -230,7 +230,7 @@ public class SafeInput
             }
             else
             {
-                System.out.print(userAnswer + "is not a valid entry ");
+                System.out.print(userAnswer + " is not a valid entry ");
             }
         }
         while(!validInput);
