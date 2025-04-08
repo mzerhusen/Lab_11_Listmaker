@@ -121,6 +121,21 @@ public class Listmaker
         }
     }
 
+    private static void menuPrint()
+    {
+        if(!userList.isEmpty())
+        {
+            for (int x = 0; x < userList.size(); x++)
+            {
+                System.out.println(userList.get(x));
+            }
+        }
+        else
+        {
+            System.out.println("List is empty.");
+        }
+    }
+
     private static boolean quitList(Scanner input)
     {
         boolean quit;
