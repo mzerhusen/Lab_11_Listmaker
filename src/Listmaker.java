@@ -130,6 +130,7 @@ public class Listmaker
             {
                 System.out.println(userList.get(x));
             }
+            System.out.print("\n\n\n");
         }
         else
         {
