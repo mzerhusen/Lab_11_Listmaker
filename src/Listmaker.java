@@ -36,6 +36,7 @@ public class Listmaker
                         insertIntoList(input);
                         break;
                     case "P":
+                        menuPrint();
                         break;
                     case "Q":
                         isDone = quitList(input);
